@@ -1,54 +1,57 @@
-let currentQuestion = 0;
-let score = 0;
-
-function loadQuestion() {
-  document.getElementById("question").innerHTML =
-    questions[currentQuestion].question;
-
-  let options = "";
-  questions[currentQuestion].options.forEach((option, index) => {
-    options += `
-      <label>
-        <input type="radio" name="answer" value="${index}">
-        ${option}
-      </label><br><br>
-    `;
-  });
-
-  document.getElementById("options").innerHTML = options;
-}
-
-document.getElementById("nextBtn").onclick = function () {
-  const selected = document.querySelector('input[name="answer"]:checked');
-
-  if (selected) {
-    if (parseInt(selected.value) === questions[currentQuestion].answer) {
-      score++;
-    }
+const questions = [
+  {
+    question: "Maharashtra ki Rajdhani kya hai?",
+    options: ["Pune", "Mumbai", "Nagpur", "Nashik"],
+    answer: 1
+  },
+  {
+    question: "Bharat ka Rashtriya Pashu kaun sa hai?",
+    options: ["Sher", "Bagh", "Hathi", "Mor"],
+    answer: 1
+  },
+  {
+    question: "15 × 12 = ?",
+    options: ["160", "170", "180", "190"],
+    answer: 2
+  },
+  {
+    question: "Bharat ka Samvidhan kab lagu hua?",
+    options: [
+      "26 January 1950",
+      "15 August 1947",
+      "26 November 1949",
+      "2 October 1950"
+    ],
+    answer: 0
+  },
+  {
+    question: "Maharashtra me kitne jile hain?",
+    options: ["34", "35", "36", "37"],
+    answer: 2
+  },
+  {
+    question: "Maharashtra ka sabse bada shahar kaun sa hai?",
+    options: ["Nagpur", "Pune", "Mumbai", "Nashik"],
+    answer: 2
+  },
+  {
+    question: "Bharat ke pehle Rashtrapati kaun the?",
+    options: ["Dr. Rajendra Prasad", "Nehru", "Gandhi", "Ambedkar"],
+    answer: 0
+  },
+  {
+    question: "Police Bharti me important physical test kya hota hai?",
+    options: ["Running", "Driving", "Swimming", "Cycling"],
+    answer: 0
+  },
+  {
+    question: "Bharat ka Rashtriya Phool kaun sa hai?",
+    options: ["Gulab", "Kamal", "Genda", "Surajmukhi"],
+    answer: 1
+  },
+  {
+    question: "Maharashtra ki official language kya hai?",
+    options: ["Hindi", "English", "Marathi", "Gujarati"],
+    answer: 2
   }
-
-  currentQuestion++;
-
-  if (currentQuestion < questions.length) {
-    loadQuestion();
-  } else {
-    localStorage.setItem("score", score);
-    localStorage.setItem("total", questions.length);
-    window.location.href = "result.html";
-  }
-};
-
-document.getElementById("prevBtn").onclick = function () {
-  if (currentQuestion > 0) {
-    currentQuestion--;
-    loadQuestion();
-  }
-};
-
-document.getElementById("submitBtn").onclick = function () {
-  localStorage.setItem("score", score);
-  localStorage.setItem("total", questions.length);
-  window.location.href = "result.html";
-};
-
-loadQuestion();
+];
