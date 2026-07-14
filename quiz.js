@@ -7,23 +7,28 @@ const optionsEl = document.getElementById("options");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const submitBtn = document.getElementById("submitBtn");
+const progress = document.getElementById("progress");
+const progressBar = document.getElementById("progressBar");
 
 function loadQuestion() {
     const q = questions[currentQuestion];
-    questionEl.innerText = (currentQuestion + 1) + ". " + q.question;
+
+    questionEl.innerHTML = q.question;
+    progress.innerHTML = `Question ${currentQuestion + 1} / ${questions.length}`;
+    progressBar.max = questions.length;
+    progressBar.value = currentQuestion + 1;
+
     optionsEl.innerHTML = "";
 
     q.options.forEach((option, index) => {
         const btn = document.createElement("button");
-        btn.innerText = option;
+        btn.innerHTML = option;
         btn.style.display = "block";
-        btn.style.margin = "10px auto";
-        btn.style.padding = "10px";
-        btn.style.width = "80%";
+        btn.style.width = "100%";
+        btn.style.margin = "12px 0";
 
         if (answers[currentQuestion] === index) {
-            btn.style.background = "#4CAF50";
-            btn.style.color = "white";
+            btn.style.background = "#22c55e";
         }
 
         btn.onclick = () => {
@@ -56,8 +61,23 @@ submitBtn.onclick = () => {
         if (ans === questions[i].answer) score++;
     });
 
+    let percent = Math.round((score / questions.length) * 100);
+
+    let rank = "C";
+
+    if (percent >= 90) rank = "S+";
+    else if (percent >= 80) rank = "A+";
+    else if (percent >= 70) rank = "A";
+    else if (percent >= 60) rank = "B";
+
     alert(
-        `Quiz Complete!\n\nScore: ${score}/${questions.length}`
+`🏆 RESULT
+
+Score : ${score}/${questions.length}
+
+Percentage : ${percent}%
+
+Rank : ${rank}`
     );
 };
 
