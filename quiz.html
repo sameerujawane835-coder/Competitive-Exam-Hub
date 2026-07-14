@@ -3,24 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Competitive Exam Hub - Quiz</title>
+<title>Maharashtra Police Quiz</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<h1>Competitive Exam Hub</h1>
+
+<nav class="navbar">
+<div class="logo">🏆 Competitive Exam Hub</div>
 <div id="timer">30:00</div>
-</header>
+</nav>
+
 <div class="quiz-box">
-<h2 id="question">Question Loading...</h2>
+
+<div style="margin-bottom:20px;">
+<h3 id="progress">Question 1 / 10</h3>
+<progress id="progressBar" value="1" max="10" style="width:100%;height:12px;"></progress>
+</div>
+
+<h2 id="question">Loading...</h2>
+
 <div id="options"></div>
-<div class="buttons">
-<button id="prevBtn">Previous</button>
-<button id="nextBtn">Next</button>
+
+<div style="margin-top:25px;text-align:center;">
+<button id="prevBtn">⬅ Previous</button>
+<button id="nextBtn">Next ➡</button>
+<button id="submitBtn">🏁 Submit Test</button>
 </div>
-<button id="submitBtn">Submit Test</button>
+
 </div>
+
 <script src="./questions.js"></script>
 <script src="./quiz.js"></script>
+
 </body>
 </html>
