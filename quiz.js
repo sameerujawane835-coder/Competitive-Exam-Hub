@@ -70,15 +70,6 @@ submitBtn.onclick = () => {
     else if (percent >= 70) rank = "A";
     else if (percent >= 60) rank = "B";
 
-    alert(
-`🏆 RESULT
-
-Score : ${score}/${questions.length}
-
-Percentage : ${percent}%
-
-Rank : ${rank}`
-    );
-};
-
-loadQuestion();
+  localStorage.setItem("score", score);
+localStorage.setItem("total", questions.length);
+window.location.href = "result.html";
