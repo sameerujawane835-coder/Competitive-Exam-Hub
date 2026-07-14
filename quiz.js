@@ -73,3 +73,4 @@ submitBtn.onclick = () => {
   localStorage.setItem("score", score);
 localStorage.setItem("total", questions.length);
 window.location.href = "result.html";
+};
