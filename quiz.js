@@ -11,67 +11,96 @@ const progress = document.getElementById("progress");
 const progressBar = document.getElementById("progressBar");
 
 function loadQuestion() {
-    const q = questions[currentQuestion];
+
+    let q = questions[currentQuestion];
 
     questionEl.innerHTML = q.question;
+
     progress.innerHTML = `Question ${currentQuestion + 1} / ${questions.length}`;
+
     progressBar.max = questions.length;
     progressBar.value = currentQuestion + 1;
 
     optionsEl.innerHTML = "";
 
     q.options.forEach((option, index) => {
-        const btn = document.createElement("button");
+
+        let btn = document.createElement("button");
+
         btn.innerHTML = option;
+
         btn.style.display = "block";
         btn.style.width = "100%";
-        btn.style.margin = "12px 0";
+        btn.style.margin = "10px 0";
+
+        btn.onclick = () => {
+
+            answers[currentQuestion] = index;
+
+            loadQuestion();
+
+        };
 
         if (answers[currentQuestion] === index) {
             btn.style.background = "#22c55e";
         }
 
-        btn.onclick = () => {
-            answers[currentQuestion] = index;
-            loadQuestion();
-        };
-
         optionsEl.appendChild(btn);
+
     });
+
 }
 
+
 nextBtn.onclick = () => {
+
     if (currentQuestion < questions.length - 1) {
+
         currentQuestion++;
+
         loadQuestion();
+
     }
+
 };
+
 
 prevBtn.onclick = () => {
+
     if (currentQuestion > 0) {
+
         currentQuestion--;
+
         loadQuestion();
+
     }
+
 };
 
+
 submitBtn.onclick = () => {
+
     score = 0;
 
     answers.forEach((ans, i) => {
-        if (ans === questions[i].answer) score++;
+
+        if (ans === questions[i].answer) {
+
+            score++;
+
+        }
+
     });
 
-    let percent = Math.round((score / questions.length) * 100);
 
-    let rank = "C";
+    localStorage.setItem("score", score);
 
-    if (percent >= 90) rank = "S+";
-    else if (percent >= 80) rank = "A+";
-    else if (percent >= 70) rank = "A";
-    else if (percent >= 60) rank = "B";
+    localStorage.setItem("total", questions.length);
 
-  localStorage.setItem("score", score);
-localStorage.setItem("total", questions.length);
-window.location.href = "result.html";
+
+    window.location.href = "result.html";
+
 };
+
+
 loadQuestion();
