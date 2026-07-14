@@ -1,57 +1,64 @@
-const questions = [
-  {
-    question: "Maharashtra ki Rajdhani kya hai?",
-    options: ["Pune", "Mumbai", "Nagpur", "Nashik"],
-    answer: 1
-  },
-  {
-    question: "Bharat ka Rashtriya Pashu kaun sa hai?",
-    options: ["Sher", "Bagh", "Hathi", "Mor"],
-    answer: 1
-  },
-  {
-    question: "15 × 12 = ?",
-    options: ["160", "170", "180", "190"],
-    answer: 2
-  },
-  {
-    question: "Bharat ka Samvidhan kab lagu hua?",
-    options: [
-      "26 January 1950",
-      "15 August 1947",
-      "26 November 1949",
-      "2 October 1950"
-    ],
-    answer: 0
-  },
-  {
-    question: "Maharashtra me kitne jile hain?",
-    options: ["34", "35", "36", "37"],
-    answer: 2
-  },
-  {
-    question: "Maharashtra ka sabse bada shahar kaun sa hai?",
-    options: ["Nagpur", "Pune", "Mumbai", "Nashik"],
-    answer: 2
-  },
-  {
-    question: "Bharat ke pehle Rashtrapati kaun the?",
-    options: ["Dr. Rajendra Prasad", "Nehru", "Gandhi", "Ambedkar"],
-    answer: 0
-  },
-  {
-    question: "Police Bharti me important physical test kya hota hai?",
-    options: ["Running", "Driving", "Swimming", "Cycling"],
-    answer: 0
-  },
-  {
-    question: "Bharat ka Rashtriya Phool kaun sa hai?",
-    options: ["Gulab", "Kamal", "Genda", "Surajmukhi"],
-    answer: 1
-  },
-  {
-    question: "Maharashtra ki official language kya hai?",
-    options: ["Hindi", "English", "Marathi", "Gujarati"],
-    answer: 2
-  }
-];
+let currentQuestion = 0;
+let score = 0;
+let answers = new Array(questions.length).fill(null);
+
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const submitBtn = document.getElementById("submitBtn");
+
+function loadQuestion() {
+    const q = questions[currentQuestion];
+    questionEl.innerText = (currentQuestion + 1) + ". " + q.question;
+    optionsEl.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = option;
+        btn.style.display = "block";
+        btn.style.margin = "10px auto";
+        btn.style.padding = "10px";
+        btn.style.width = "80%";
+
+        if (answers[currentQuestion] === index) {
+            btn.style.background = "#4CAF50";
+            btn.style.color = "white";
+        }
+
+        btn.onclick = () => {
+            answers[currentQuestion] = index;
+            loadQuestion();
+        };
+
+        optionsEl.appendChild(btn);
+    });
+}
+
+nextBtn.onclick = () => {
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        loadQuestion();
+    }
+};
+
+prevBtn.onclick = () => {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion();
+    }
+};
+
+submitBtn.onclick = () => {
+    score = 0;
+
+    answers.forEach((ans, i) => {
+        if (ans === questions[i].answer) score++;
+    });
+
+    alert(
+        `Quiz Complete!\n\nScore: ${score}/${questions.length}`
+    );
+};
+
+loadQuestion();
