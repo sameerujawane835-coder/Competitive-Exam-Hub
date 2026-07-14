@@ -74,3 +74,4 @@ submitBtn.onclick = () => {
 localStorage.setItem("total", questions.length);
 window.location.href = "result.html";
 };
+loadQuestion();
