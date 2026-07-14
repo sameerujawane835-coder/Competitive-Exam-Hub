@@ -1,17 +1,157 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
-    background:#0f172a;
-    color:white;
+background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+color:#fff;
+min-height:100vh;
 }
 
-h1{
-    text-align:center;
-    margin-top:50px;
-    color:#38bdf8;
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+position:sticky;
+top:0;
 }
 
-p{
-    text-align:center;
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.navbar a{
+text-decoration:none;
+background:#22c55e;
+color:#fff;
+padding:12px 25px;
+border-radius:30px;
+font-weight:bold;
+transition:.3s;
+}
+
+.navbar a:hover{
+background:#16a34a;
+transform:scale(1.05);
+}
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+opacity:.9;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+background:#f59e0b;
+color:#fff;
+padding:15px 35px;
+border-radius:35px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn:hover{
+background:#d97706;
+transform:translateY(-3px);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:20px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+transition:.3s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:rgba(255,255,255,.18);
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.quiz-box{
+width:90%;
+max-width:800px;
+margin:40px auto;
+background:rgba(255,255,255,.1);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+button{
+padding:14px 25px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:#fff;
+font-size:17px;
+cursor:pointer;
+margin:8px;
+transition:.3s;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+#timer{
+font-size:22px;
+font-weight:bold;
+color:#facc15;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:30px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.logo{
+font-size:20px;
+}
+
+.navbar{
+padding:15px;
+}
+
+.cards{
+padding:20px;
+}
+
 }
