@@ -1,4 +1,3 @@
-
 const questions = [
 {
 question:"महाराष्ट्राची राजधानी कोणती आहे?",
