@@ -1,57 +1,52 @@
 const questions = [
-  {
-    question: "Maharashtra ki Rajdhani kya hai?",
-    options: ["Pune", "Mumbai", "Nagpur", "Nashik"],
-    answer: 1
-  },
-  {
-    question: "Bharat ka Rashtriya Pashu kaun sa hai?",
-    options: ["Sher", "Bagh", "Hathi", "Mor"],
-    answer: 1
-  },
-  {
-    question: "15 × 12 = ?",
-    options: ["160", "170", "180", "190"],
-    answer: 2
-  },
-  {
-    question: "Bharat ka Samvidhan kab lagu hua?",
-    options: [
-      "26 January 1950",
-      "15 August 1947",
-      "26 November 1949",
-      "2 October 1950"
-    ],
-    answer: 0
-  },
-  {
-    question: "Maharashtra me kitne jile hain?",
-    options: ["34", "35", "36", "37"],
-    answer: 2
-  },
-  {
-    question: "Maharashtra ka sabse bada shahar kaun sa hai?",
-    options: ["Nagpur", "Pune", "Mumbai", "Nashik"],
-    answer: 2
-  },
-  {
-    question: "Bharat ke pehle Rashtrapati kaun the?",
-    options: ["Dr. Rajendra Prasad", "Nehru", "Gandhi", "Ambedkar"],
-    answer: 0
-  },
-  {
-    question: "Police Bharti me physical test ka ek important part kya hai?",
-    options: ["Running", "Swimming", "Cycling", "Driving"],
-    answer: 0
-  },
-  {
-    question: "Bharat ka Rashtriya Phool kaun sa hai?",
-    options: ["Gulab", "Kamal", "Surajmukhi", "Genda"],
-    answer: 1
-  },
-  {
-    question: "Maharashtra ki official language kya hai?",
-    options: ["Hindi", "English", "Marathi", "Gujarati"],
-    answer: 2
-  }
+{
+question: "महाराष्ट्राची राजधानी कोणती आहे?",
+options: ["पुणे", "मुंबई", "नागपूर", "नाशिक"],
+answer: "मुंबई"
+},
+{
+question: "भारताचा राष्ट्रीय प्राणी कोणता आहे?",
+options: ["सिंह", "वाघ", "हत्ती", "मोर"],
+answer: "वाघ"
+},
+{
+question: "महाराष्ट्र राज्याची स्थापना कधी झाली?",
+options: ["1 मे 1960", "15 ऑगस्ट 1947", "26 जानेवारी 1950", "1 जानेवारी 1956"],
+answer: "1 मे 1960"
+},
+{
+question: "भारतीय संविधानाचे शिल्पकार कोण आहेत?",
+options: ["महात्मा गांधी", "डॉ. बाबासाहेब आंबेडकर", "नेहरू", "सुभाषचंद्र बोस"],
+answer: "डॉ. बाबासाहेब आंबेडकर"
+},
+{
+question: "भारताचा राष्ट्रीय पक्षी कोणता आहे?",
+options: ["कबूतर", "मोर", "गरुड", "कोकीळ"],
+answer: "मोर"
+},
+{
+question: "पृथ्वीचा उपग्रह कोणता आहे?",
+options: ["सूर्य", "चंद्र", "मंगळ", "शुक्र"],
+answer: "चंद्र"
+},
+{
+question: "15 ऑगस्ट 1947 रोजी काय झाले?",
+options: ["प्रजासत्ताक दिन", "स्वातंत्र्य दिन", "गणराज्य दिन", "संविधान दिन"],
+answer: "स्वातंत्र्य दिन"
+},
+{
+question: "महाराष्ट्रातील सर्वात उंच शिखर कोणते?",
+options: ["हरिश्चंद्रगड", "कळसूबाई", "राजगड", "तोरणा"],
+answer: "कळसूबाई"
+},
+{
+question: "भारतीय संविधान कधी लागू झाले?",
+options: ["26 जानेवारी 1950", "15 ऑगस्ट 1947", "26 नोव्हेंबर 1949", "1 मे 1960"],
+answer: "26 जानेवारी 1950"
+},
+{
+question: "सूर्यमालेतील सर्वात मोठा ग्रह कोणता?",
+options: ["पृथ्वी", "मंगळ", "गुरु", "शनि"],
+answer: "गुरु"
+}
 ];
