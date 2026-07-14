@@ -3,34 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Result</title>
+<title>Quiz Result</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<h1>Test Result</h1>
-</header>
+<div class="quiz-box">
 
-<div class="container">
-<div class="card">
-<h2>Your Score</h2>
+<h1>🏆 Quiz Result</h1>
 
-<h1 id="score"></h1>
+<h2 id="score">Score: 0/0</h2>
 
-<button onclick="window.location.href='index.html'">
-Back to Home
-</button>
+<h2 id="percentage">Percentage: 0%</h2>
+
+<h2 id="rank">Rank: -</h2>
+
+<div style="margin-top:30px;text-align:center;">
+
+<a href="quiz.html" class="btn">🔄 Retry Quiz</a>
+
+<a href="index.html" class="btn">🏠 Home</a>
 
 </div>
+
 </div>
 
 <script>
-let score = localStorage.getItem("score");
-let total = localStorage.getItem("total");
+
+let score = localStorage.getItem("score") || 0;
+let total = localStorage.getItem("total") || 0;
+
+let percent = total == 0 ? 0 : Math.round((score / total) * 100);
+
+let rank = "C";
+
+if(percent>=90) rank="S+";
+else if(percent>=80) rank="A+";
+else if(percent>=70) rank="A";
+else if(percent>=60) rank="B";
 
 document.getElementById("score").innerHTML =
-score + " / " + total;
+"Score : "+score+"/"+total;
+
+document.getElementById("percentage").innerHTML =
+"Percentage : "+percent+"%";
+
+document.getElementById("rank").innerHTML =
+"Rank : "+rank;
+
 </script>
 
 </body>
